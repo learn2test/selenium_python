@@ -7,19 +7,20 @@ from selenium import webdriver
 from selenium.common.exceptions import *
 import unittest
 from selenium_fixture import driver
+from user import User
 
 
 
 def test_login(driver):
     driver.get("http:localhost/php4dvd/")
-    login(driver)
+    login(driver, User.Admin())
     logout(driver)
 
-def login(driver, username, password):
+def login(driver, user):
     driver.find_element_by_id("username").clear()
-    driver.find_element_by_id("username").send_keys("admin")
+    driver.find_element_by_id("username").send_keys(user.username)
     driver.find_element_by_name("password").clear()
-    driver.find_element_by_name("password").send_keys("admin")
+    driver.find_element_by_name("password").send_keys(user.password)
     driver.find_element_by_name("submit").click()
     
 def logout(driver):
