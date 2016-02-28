@@ -3,7 +3,6 @@ Created on Feb 27, 2016
 
 @author: User
 '''
-from MySQLdb.constants.ER import PASSWORD_ANONYMOUS_USER
 
 class User(object):
     

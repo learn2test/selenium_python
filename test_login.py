@@ -5,16 +5,16 @@ Created on Feb 27, 2016
 '''
 from selenium import webdriver
 from selenium.common.exceptions import *
-import unittest
-from selenium_fixture import driver
-from user import User
+from selenium_fixture import app
+from model.user import User
 
 
 
-def test_login(driver):
-    driver.get("http:localhost/php4dvd/")
-    login(driver, User.Admin())
-    logout(driver)
+
+def test_login(app):
+    app.driver.get("http:localhost/php4dvd/")
+    login(app.driver, User.Admin())
+    logout(app.driver)
 
 def login(driver, user):
     driver.find_element_by_id("username").clear()
