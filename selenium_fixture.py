@@ -8,7 +8,7 @@ from selenium import webdriver
 import pytest
 from model.application import Application
 
-@pytest.fixture
+@pytest.fixture(scope='module') #to initialize browser before and after module, not before and after each test
 def app(request):
     driver = webdriver.Firefox()
     driver.implicitly_wait(10)
